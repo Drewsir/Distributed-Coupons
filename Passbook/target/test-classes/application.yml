@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: Southeast-Passbook
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/passbook?autoReconnect=true
+    username: root
+    password: 123
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    consumer:
+      group-id: passbook
+    listener:
+      concurrency: 4
+  data:
+    hbase:
+      quorum: 127.0.0.1:2181 # 指定 HBase 的 zk 地址
+      rootDir: file:///F:/Java/hbase-1.2.0/root # 指定 HBase 在 HDFS 上存储的路径
+      nodeParent: /hbase # 指定 ZooKeeper 中 HBase 的根 ZNode
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+server:
+  port: 9528
+
+logging:
+  file: southeast-passbook.log
+  level: debug
